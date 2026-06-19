@@ -21,7 +21,6 @@ import { useCart } from "@/lib/cart-context"
 const payments = [
   { id: "card", label: "Credit Card", icon: CreditCard },
   { id: "eft", label: "EFT Transfer", icon: Building2 },
-  { id: "whatsapp", label: "WhatsApp Pay", icon: MessageCircle },
 ]
 
 function Field({
@@ -151,7 +150,7 @@ export default function CheckoutPage() {
                 <CreditCard className="size-5" />
                 <h2 className="text-lg font-bold">Payment Method</h2>
               </div>
-              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {payments.map((option) => {
                   const active = payment === option.id
                   return (
