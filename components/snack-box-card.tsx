@@ -29,8 +29,8 @@ export function SnackBoxCard({ product }: { product: Product }) {
       className={cn(
         "group flex flex-col overflow-hidden rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
         featured
-          ? "border-primary bg-primary text-primary-foreground lg:-mt-4 lg:mb-0"
-          : "border-border bg-card text-card-foreground",
+          ? "border-[#0f2d24] bg-[#0f2d24] text-white lg:-mt-4 lg:mb-0"
+          : "border-gray-200 bg-white text-gray-900",
       )}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -42,11 +42,11 @@ export function SnackBoxCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {featured && (
-          <span className="absolute left-3 top-3 rounded-md bg-primary px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-accent ring-1 ring-accent/40">
+          <span className="absolute left-3 top-3 rounded-md bg-[#0f2d24] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#e8a317] ring-1 ring-[#e8a317]/40">
             Most Popular
           </span>
         )}
-        <span className="absolute right-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground shadow">
+        <span className="absolute right-3 top-3 rounded-full bg-[#e8a317] px-3 py-1 text-xs font-bold text-[#0f2d24] shadow">
           R{product.price} {product.unit}
         </span>
       </div>
@@ -57,9 +57,9 @@ export function SnackBoxCard({ product }: { product: Product }) {
           {product.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2.5 text-sm">
               <CheckCircle2
-                className={cn("mt-0.5 size-4 shrink-0", featured ? "text-accent" : "text-primary/70")}
+                className={cn("mt-0.5 size-4 shrink-0", featured ? "text-[#e8a317]" : "text-[#0f2d24]/70")}
               />
-              <span className={featured ? "text-primary-foreground/85" : "text-muted-foreground"}>
+              <span className={featured ? "text-white/85" : "text-gray-500"}>
                 {feature}
               </span>
             </li>
@@ -71,8 +71,8 @@ export function SnackBoxCard({ product }: { product: Product }) {
           className={cn(
             "mt-6 flex w-full items-center justify-center gap-2 rounded-lg border py-3 text-sm font-semibold transition-all active:translate-y-px",
             featured
-              ? "border-accent bg-accent text-accent-foreground hover:brightness-95"
-              : "border-border bg-card text-primary hover:bg-muted",
+              ? "border-[#e8a317] bg-[#e8a317] text-[#0f2d24] hover:brightness-95"
+              : "border-gray-200 bg-white text-[#0f2d24] hover:bg-gray-50",
           )}
         >
           {added ? (

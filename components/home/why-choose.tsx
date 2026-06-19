@@ -25,13 +25,13 @@ const features = [
 
 export function WhyChoose() {
   return (
-    <section className="bg-card py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-[#0f2d24] sm:text-4xl">
             Why Choose WorkFuel?
           </h2>
-          <p className="mt-4 text-pretty text-muted-foreground">
+          <p className="mt-4 text-pretty text-gray-500">
             Elevating the office snack experience through premium curation and reliable delivery.
           </p>
         </div>
@@ -40,13 +40,13 @@ export function WhyChoose() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal hover:shadow-lg"
+              className="rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-teal/40 text-primary">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-[#c5e8d8] text-[#0f2d24]">
                 <feature.icon className="size-6" />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-primary">{feature.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.text}</p>
+              <h3 className="mt-5 text-lg font-bold text-[#0f2d24]">{feature.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-500">{feature.text}</p>
             </div>
           ))}
         </div>

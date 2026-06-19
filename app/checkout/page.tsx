@@ -33,14 +33,14 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-sm font-medium text-foreground">{label}</span>
+      <span className="text-sm font-medium text-gray-900">{label}</span>
       <div className="mt-1.5">{children}</div>
     </label>
   )
 }
 
 const inputClass =
-  "w-full rounded-lg border border-input bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+  "w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:border-[#0f2d24] focus:outline-none focus:ring-2 focus:ring-[#0f2d24]/20"
 
 export default function CheckoutPage() {
   const { items, subtotal, updateQuantity, removeItem, clear } = useCart()
@@ -59,19 +59,19 @@ export default function CheckoutPage() {
 
   if (placed) {
     return (
-      <main className="bg-background">
+      <main className="bg-gray-50">
         <div className="mx-auto flex max-w-md flex-col items-center px-4 py-24 text-center">
-          <div className="flex size-16 items-center justify-center rounded-full bg-teal/40 text-primary">
+          <div className="flex size-16 items-center justify-center rounded-full bg-[#c5e8d8] text-[#0f2d24]">
             <CheckCircle2 className="size-8" />
           </div>
-          <h1 className="mt-6 text-3xl font-bold text-primary">Order Placed!</h1>
-          <p className="mt-3 text-muted-foreground">
+          <h1 className="mt-6 text-3xl font-bold text-[#0f2d24]">Order Placed!</h1>
+          <p className="mt-3 text-gray-500">
             Thanks for fueling your team with WorkFuel. We&apos;ll be in touch shortly to confirm your Johannesburg
             delivery.
           </p>
           <Link
             href="/snack-boxes"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-all hover:brightness-95"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#e8a317] px-6 py-3 text-sm font-semibold text-[#0f2d24] transition-all hover:brightness-95"
           >
             Continue Shopping <ArrowRight className="size-4" />
           </Link>
@@ -81,16 +81,16 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="bg-background">
+    <main className="bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <h1 className="text-4xl font-bold tracking-tight text-primary">Checkout</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-[#0f2d24]">Checkout</h1>
 
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_380px]">
           {/* Left column */}
           <div className="space-y-6">
             {/* Contact Information */}
-            <section className="rounded-2xl border border-border bg-card p-6 sm:p-7">
-              <div className="flex items-center gap-2 text-primary">
+            <section className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7">
+              <div className="flex items-center gap-2 text-[#0f2d24]">
                 <User className="size-5" />
                 <h2 className="text-lg font-bold">Contact Information</h2>
               </div>
@@ -111,8 +111,8 @@ export default function CheckoutPage() {
             </section>
 
             {/* Delivery Details */}
-            <section className="rounded-2xl border border-border bg-card p-6 sm:p-7">
-              <div className="flex items-center gap-2 text-primary">
+            <section className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7">
+              <div className="flex items-center gap-2 text-[#0f2d24]">
                 <MapPin className="size-5" />
                 <h2 className="text-lg font-bold">Johannesburg Delivery Details</h2>
               </div>
@@ -146,8 +146,8 @@ export default function CheckoutPage() {
             </section>
 
             {/* Payment Method */}
-            <section className="rounded-2xl border border-border bg-card p-6 sm:p-7">
-              <div className="flex items-center gap-2 text-primary">
+            <section className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7">
+              <div className="flex items-center gap-2 text-[#0f2d24]">
                 <CreditCard className="size-5" />
                 <h2 className="text-lg font-bold">Payment Method</h2>
               </div>
@@ -162,8 +162,8 @@ export default function CheckoutPage() {
                       className={cn(
                         "flex flex-col items-center gap-2 rounded-xl border-2 px-4 py-5 text-sm font-semibold transition-all",
                         active
-                          ? "border-primary bg-teal/20 text-primary"
-                          : "border-border bg-card text-muted-foreground hover:border-primary/40",
+                          ? "border-[#0f2d24] bg-[#c5e8d8]/30 text-[#0f2d24]"
+                          : "border-gray-200 bg-white text-gray-500 hover:border-[#0f2d24]/40",
                       )}
                     >
                       <option.icon className="size-6" />
@@ -177,15 +177,15 @@ export default function CheckoutPage() {
 
           {/* Right column - Order Summary */}
           <div className="lg:sticky lg:top-24 lg:h-fit">
-            <section className="rounded-2xl border border-border bg-card p-6">
-              <h2 className="text-lg font-bold text-primary">Order Summary</h2>
+            <section className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-lg font-bold text-[#0f2d24]">Order Summary</h2>
 
               {items.length === 0 ? (
                 <div className="mt-6 text-center">
-                  <p className="text-sm text-muted-foreground">Your cart is empty.</p>
+                  <p className="text-sm text-gray-500">Your cart is empty.</p>
                   <Link
                     href="/snack-boxes"
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:brightness-95"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#e8a317] px-5 py-2.5 text-sm font-semibold text-[#0f2d24] transition-all hover:brightness-95"
                   >
                     Browse Snack Boxes <ArrowRight className="size-4" />
                   </Link>
@@ -205,17 +205,17 @@ export default function CheckoutPage() {
                           />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-semibold text-primary">{item.name}</p>
-                          <p className="text-xs text-muted-foreground">
+                          <p className="truncate text-sm font-semibold text-[#0f2d24]">{item.name}</p>
+                          <p className="text-xs text-gray-500">
                             {item.price > 0 ? `R${item.price.toFixed(2)} ${item.unit}` : item.unit}
                           </p>
                           <div className="mt-1.5 flex items-center gap-2">
-                            <div className="flex items-center rounded-md border border-border">
+                            <div className="flex items-center rounded-md border border-gray-200">
                               <button
                                 type="button"
                                 aria-label="Decrease quantity"
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="flex size-6 items-center justify-center text-muted-foreground hover:text-primary"
+                                className="flex size-6 items-center justify-center text-gray-500 hover:text-[#0f2d24]"
                               >
                                 <Minus className="size-3" />
                               </button>
@@ -224,7 +224,7 @@ export default function CheckoutPage() {
                                 type="button"
                                 aria-label="Increase quantity"
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="flex size-6 items-center justify-center text-muted-foreground hover:text-primary"
+                                className="flex size-6 items-center justify-center text-gray-500 hover:text-[#0f2d24]"
                               >
                                 <Plus className="size-3" />
                               </button>
@@ -233,54 +233,54 @@ export default function CheckoutPage() {
                               type="button"
                               aria-label="Remove item"
                               onClick={() => removeItem(item.id)}
-                              className="text-muted-foreground transition-colors hover:text-destructive"
+                              className="text-gray-500 transition-colors hover:text-red-500"
                             >
                               <Trash2 className="size-4" />
                             </button>
                           </div>
                         </div>
-                        <span className="text-sm font-semibold text-primary">
+                        <span className="text-sm font-semibold text-[#0f2d24]">
                           R{(item.price * item.quantity).toFixed(2)}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-5 space-y-2.5 border-t border-border pt-5 text-sm">
-                    <div className="flex justify-between text-muted-foreground">
+                  <div className="mt-5 space-y-2.5 border-t border-gray-200 pt-5 text-sm">
+                    <div className="flex justify-between text-gray-500">
                       <span>Subtotal</span>
-                      <span className="font-medium text-foreground">R{subtotal.toFixed(2)}</span>
+                      <span className="font-medium text-gray-900">R{subtotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-muted-foreground">
+                    <div className="flex justify-between text-gray-500">
                       <span>VAT (15%)</span>
-                      <span className="font-medium text-foreground">R{vat.toFixed(2)}</span>
+                      <span className="font-medium text-gray-900">R{vat.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-muted-foreground">
+                    <div className="flex justify-between text-gray-500">
                       <span>Delivery Fee</span>
-                      <span className="font-bold text-primary">FREE</span>
+                      <span className="font-bold text-[#0f2d24]">FREE</span>
                     </div>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                    <span className="text-lg font-bold text-primary">Total</span>
-                    <span className="text-lg font-bold text-primary">R{total.toFixed(2)}</span>
+                  <div className="mt-4 flex items-center justify-between border-t border-gray-200 pt-4">
+                    <span className="text-lg font-bold text-[#0f2d24]">Total</span>
+                    <span className="text-lg font-bold text-[#0f2d24]">R{total.toFixed(2)}</span>
                   </div>
 
                   <button
                     type="submit"
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-base font-bold text-accent-foreground shadow-sm transition-all hover:brightness-95 active:translate-y-px"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-[#e8a317] px-6 py-3.5 text-base font-bold text-[#0f2d24] shadow-sm transition-all hover:brightness-95 active:translate-y-px"
                   >
                     Place Order <ArrowRight className="size-5" />
                   </button>
 
                   <a
                     href="https://wa.me/27670645653"
-                    className="mt-3 flex items-center gap-2 rounded-lg bg-secondary px-4 py-3 text-xs transition-colors hover:bg-muted"
+                    className="mt-3 flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-xs transition-colors hover:bg-gray-200"
                   >
-                    <MessageCircle className="size-5 shrink-0 text-primary" />
+                    <MessageCircle className="size-5 shrink-0 text-[#0f2d24]" />
                     <span>
-                      <span className="block font-bold text-primary">Quick Order via WhatsApp?</span>
-                      <span className="block text-muted-foreground">Chat with 067 064 5653</span>
+                      <span className="block font-bold text-[#0f2d24]">Quick Order via WhatsApp?</span>
+                      <span className="block text-gray-500">Chat with 067 064 5653</span>
                     </span>
                   </a>
                 </>

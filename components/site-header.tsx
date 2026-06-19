@@ -20,10 +20,10 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-bold tracking-tight text-primary">
-          Work<span className="text-accent">Fuel</span>
+        <Link href="/" className="text-xl font-bold tracking-tight text-[#0f2d24]">
+          Work<span className="text-[#e8a317]">Fuel</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -34,14 +34,14 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative py-1 text-sm font-medium transition-colors hover:text-primary",
-                  active ? "text-primary" : "text-muted-foreground",
+                  "relative py-1 text-sm font-medium transition-colors hover:text-[#0f2d24]",
+                  active ? "text-[#0f2d24]" : "text-gray-500",
                 )}
               >
                 {link.label}
                 <span
                   className={cn(
-                    "absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-accent transition-all duration-300",
+                    "absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-[#e8a317] transition-all duration-300",
                     active ? "w-full" : "w-0",
                   )}
                 />
@@ -53,7 +53,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <button
             aria-label="Search"
-            className="hidden size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary sm:flex"
+            className="hidden size-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#0f2d24] sm:flex"
           >
             <Search className="size-5" />
           </button>
@@ -61,11 +61,11 @@ export function SiteHeader() {
           <Link
             href="/checkout"
             aria-label="View cart"
-            className="relative flex size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+            className="relative flex size-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#0f2d24]"
           >
             <ShoppingCart className="size-5" />
             {count > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground">
+              <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-[#e8a317] text-[11px] font-bold text-[#0f2d24]">
                 {count}
               </span>
             )}
@@ -73,7 +73,7 @@ export function SiteHeader() {
 
           <Link
             href="/checkout"
-            className="ml-1 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm transition-all hover:brightness-95 active:translate-y-px"
+            className="ml-1 rounded-lg bg-[#e8a317] px-4 py-2 text-sm font-semibold text-[#0f2d24] shadow-sm transition-all hover:brightness-95 active:translate-y-px"
           >
             Order Now
           </Link>
@@ -81,7 +81,7 @@ export function SiteHeader() {
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="flex size-9 items-center justify-center rounded-full text-primary md:hidden"
+            className="flex size-9 items-center justify-center rounded-full text-[#0f2d24] md:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -91,7 +91,7 @@ export function SiteHeader() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "overflow-hidden border-t border-border bg-card transition-all duration-300 md:hidden",
+          "overflow-hidden border-t border-gray-200 bg-white transition-all duration-300 md:hidden",
           open ? "max-h-80" : "max-h-0 border-t-0",
         )}
       >
@@ -105,7 +105,7 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                  active ? "bg-muted text-primary" : "text-muted-foreground hover:bg-muted",
+                  active ? "bg-gray-100 text-[#0f2d24]" : "text-gray-500 hover:bg-gray-50",
                 )}
               >
                 {link.label}
@@ -115,7 +115,7 @@ export function SiteHeader() {
           <Link
             href="/checkout"
             onClick={() => setOpen(false)}
-            className="mt-1 rounded-lg bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground"
+            className="mt-1 rounded-lg bg-[#e8a317] px-3 py-2 text-center text-sm font-semibold text-[#0f2d24]"
           >
             Order Now
           </Link>

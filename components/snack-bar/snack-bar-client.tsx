@@ -57,14 +57,14 @@ export function SnackBarClient() {
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
       <aside className="lg:sticky lg:top-24 lg:h-fit">
-        <div className="rounded-2xl border border-border bg-card p-5">
-          <div className="flex items-center gap-2 text-primary">
+        <div className="rounded-2xl border border-gray-200 bg-white p-5">
+          <div className="flex items-center gap-2 text-[#0f2d24]">
             <SlidersHorizontal className="size-4" />
             <span className="font-semibold">Filters</span>
           </div>
 
           <div className="mt-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Categories</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Categories</p>
             <ul className="mt-3 space-y-1">
               {categories.map((cat) => (
                 <li key={cat.id}>
@@ -73,8 +73,8 @@ export function SnackBarClient() {
                     className={cn(
                       "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
                       category === cat.id
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-muted",
+                        ? "bg-[#0f2d24] text-white"
+                        : "text-gray-500 hover:bg-gray-100",
                     )}
                   >
                     {cat.label}
@@ -84,17 +84,17 @@ export function SnackBarClient() {
             </ul>
           </div>
 
-          <div className="mt-6 border-t border-border pt-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Price Range</p>
+          <div className="mt-6 border-t border-gray-200 pt-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Price Range</p>
             <ul className="mt-3 space-y-2.5">
               {priceRanges.map((range) => (
                 <li key={range.id}>
-                  <label className="flex cursor-pointer items-center gap-2.5 text-sm text-foreground">
+                  <label className="flex cursor-pointer items-center gap-2.5 text-sm text-gray-900">
                     <input
                       type="checkbox"
                       checked={prices.includes(range.id)}
                       onChange={() => togglePrice(range.id)}
-                      className="size-4 rounded border-border accent-primary"
+                      className="size-4 rounded border-gray-300 accent-[#0f2d24]"
                     />
                     {range.label}
                   </label>
@@ -104,14 +104,14 @@ export function SnackBarClient() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-2xl border border-border bg-secondary p-5">
-          <p className="text-sm font-semibold text-primary">Need a custom quote?</p>
-          <p className="mt-1.5 text-sm text-muted-foreground">
+        <div className="mt-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <p className="text-sm font-semibold text-[#0f2d24]">Need a custom quote?</p>
+          <p className="mt-1.5 text-sm text-gray-500">
             We create tailor-made solutions for teams of all sizes.
           </p>
           <Link
             href="/about"
-            className="mt-4 inline-flex w-full items-center justify-center rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-muted"
+            className="mt-4 inline-flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#0f2d24] transition-colors hover:bg-gray-50"
           >
             Contact Sales
           </Link>
@@ -119,8 +119,8 @@ export function SnackBarClient() {
       </aside>
 
       <div>
-        <h2 className="text-2xl font-bold tracking-tight text-primary">Our Curated Snack Boxes</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h2 className="text-2xl font-bold tracking-tight text-[#0f2d24]">Our Curated Snack Boxes</h2>
+        <p className="mt-2 text-sm text-gray-500">
           Selected favorites and balanced nutrition for high-performing teams.
         </p>
 
@@ -131,7 +131,7 @@ export function SnackBarClient() {
             ))}
           </div>
         ) : (
-          <div className="mt-8 rounded-2xl border border-dashed border-border bg-card p-12 text-center text-muted-foreground">
+          <div className="mt-8 rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-12 text-center text-gray-500">
             No products match your filters. Try adjusting your selection.
           </div>
         )}

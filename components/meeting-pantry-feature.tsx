@@ -27,7 +27,7 @@ export function MeetingPantryFeature() {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {/* Meeting Snack Pack */}
-      <div className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card sm:flex-row">
+      <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white sm:flex-row">
         <div className="relative h-48 sm:h-auto sm:w-2/5">
           <Image
             src="/images/meeting-pack.png"
@@ -38,17 +38,17 @@ export function MeetingPantryFeature() {
           />
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <span className="text-xs font-semibold uppercase tracking-wide text-teal-foreground">Team Sessions</span>
-          <h3 className="mt-1 text-2xl font-bold leading-tight text-primary">Meeting Snack Pack</h3>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#0f2d24]">Team Sessions</span>
+          <h3 className="mt-1 text-2xl font-bold leading-tight text-[#0f2d24]">Meeting Snack Pack</h3>
+          <p className="mt-3 text-sm leading-relaxed text-gray-500">
             Designed per attendee to keep energy high during long workshops and board meetings.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">
-            <span className="text-lg font-bold text-primary">R40 - R60</span> per attendee
+          <p className="mt-4 text-sm text-gray-500">
+            <span className="text-lg font-bold text-[#0f2d24]">R40 - R60</span> per attendee
           </p>
           <button
             onClick={() => order("meeting-pack")}
-            className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:brightness-95 active:translate-y-px"
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-[#e8a317] px-5 py-2.5 text-sm font-semibold text-[#0f2d24] transition-all hover:brightness-95 active:translate-y-px"
           >
             {addedId === "meeting-pack" ? (
               <>
@@ -63,7 +63,7 @@ export function MeetingPantryFeature() {
       </div>
 
       {/* Office Pantry */}
-      <div className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card sm:flex-row-reverse">
+      <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white sm:flex-row-reverse">
         <div className="relative h-48 sm:h-auto sm:w-2/5">
           <Image
             src="/images/office-pantry.png"
@@ -74,17 +74,17 @@ export function MeetingPantryFeature() {
           />
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <span className="text-xs font-semibold uppercase tracking-wide text-teal-foreground">Full Management</span>
-          <h3 className="mt-1 text-2xl font-bold leading-tight text-primary">Office Pantry</h3>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          <span className="text-xs font-semibold uppercase tracking-wide text-[#0f2d24]">Full Management</span>
+          <h3 className="mt-1 text-2xl font-bold leading-tight text-[#0f2d24]">Office Pantry</h3>
+          <p className="mt-3 text-sm leading-relaxed text-gray-500">
             Weekly restock of chips, chocolates, and sodas. Never run out of your team&apos;s favorite fuels.
           </p>
-          <div className="mt-4 inline-flex w-fit rounded-lg bg-teal/40 px-3 py-1.5 text-xs font-semibold text-teal-foreground">
+          <div className="mt-4 inline-flex w-fit rounded-lg bg-[#c5e8d8] px-3 py-1.5 text-xs font-semibold text-[#0f2d24]">
             Volume Discounts Available
           </div>
           <button
             onClick={() => order("office-pantry")}
-            className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-muted"
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#0f2d24] transition-colors hover:bg-gray-50"
           >
             {addedId === "office-pantry" ? (
               <>

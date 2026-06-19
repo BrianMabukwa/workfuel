@@ -45,12 +45,12 @@ export function EssentialAddons() {
   }
 
   return (
-    <section className="bg-background pb-16 lg:pb-24">
+    <section className="bg-gray-50 pb-16 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-primary px-6 py-12 text-primary-foreground sm:px-10 lg:px-14">
+        <div className="rounded-3xl bg-[#0f2d24] px-6 py-12 text-white sm:px-10 lg:px-14">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Essential Add-ons</h2>
-            <p className="mt-3 text-pretty text-primary-foreground/70">
+            <p className="mt-3 text-pretty text-white/70">
               The finishing touches for a complete office refreshment experience.
             </p>
           </div>
@@ -59,16 +59,16 @@ export function EssentialAddons() {
             {items.map((item) => (
               <div
                 key={item.id}
-                className="rounded-2xl bg-primary-foreground/5 p-6 text-center ring-1 ring-primary-foreground/10 transition-all duration-300 hover:bg-primary-foreground/10"
+                className="rounded-2xl bg-white/5 p-6 text-center ring-1 ring-white/10 transition-all duration-300 hover:bg-white/10"
               >
-                <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-[#e8a317] text-[#0f2d24]">
                   <item.icon className="size-7" />
                 </div>
                 <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">{item.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{item.text}</p>
                 <button
                   onClick={() => handleAdd(item.id)}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all hover:gap-2.5"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#e8a317] transition-all hover:gap-2.5"
                 >
                   {addedId === item.id ? (
                     <>
