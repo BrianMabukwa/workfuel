@@ -7,7 +7,13 @@ import { cn } from "@/lib/utils"
 import { useCart } from "@/lib/cart-context"
 import type { Product } from "@/lib/products"
 
-export function SnackBoxCard({ product }: { product: Product }) {
+export function SnackBoxCard({
+  product,
+  variant = "default",
+}: {
+  product: Product
+  variant?: "default" | "details"
+}) {
   const { addItem } = useCart()
   const featured = product.popular
   const [added, setAdded] = useState(false)
@@ -43,7 +49,7 @@ export function SnackBoxCard({ product }: { product: Product }) {
         />
         {featured && (
           <span className="absolute left-3 top-3 rounded-md bg-[#c5e8d8] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#0f2d24]">
-            MOST POPULAR
+            POPULAR
           </span>
         )}
         <span className="absolute right-3 top-3 rounded-full bg-[#e8a317] px-3 py-1 text-xs font-bold text-[#0f2d24] shadow">
@@ -66,26 +72,47 @@ export function SnackBoxCard({ product }: { product: Product }) {
           ))}
         </ul>
 
-        <button
-          onClick={handleAdd}
-          className={cn(
-            "mt-6 flex w-full items-center justify-center gap-2 rounded-lg border py-3 text-sm font-semibold transition-all active:translate-y-px",
-            featured
-              ? "border-[#e8a317] bg-[#e8a317] text-[#0f2d24] hover:brightness-95"
-              : "border-gray-300 bg-white text-[#0f2d24] hover:bg-gray-50",
-          )}
-        >
-          {added ? (
-            <>
-              <Check className="size-4" strokeWidth={3} />
-              Added!
-            </>
-          ) : featured ? (
-            "Select Box"
-          ) : (
-            "Add to Cart"
-          )}
-        </button>
+        {variant === "details" ? (
+          <button
+            onClick={handleAdd}
+            className={cn(
+              "mt-6 flex w-full items-center justify-center gap-2 rounded-lg border py-3 text-sm font-semibold transition-all active:translate-y-px",
+              featured
+                ? "border-[#e8a317] bg-[#e8a317] text-[#0f2d24] hover:brightness-95"
+                : "border-[#0f2d24] bg-[#0f2d24] text-white hover:bg-[#0a231c]",
+            )}
+          >
+            {added ? (
+              <>
+                <Check className="size-4" strokeWidth={3} />
+                Added!
+              </>
+            ) : (
+              "View Details"
+            )}
+          </button>
+        ) : (
+          <button
+            onClick={handleAdd}
+            className={cn(
+              "mt-6 flex w-full items-center justify-center gap-2 rounded-lg border py-3 text-sm font-semibold transition-all active:translate-y-px",
+              featured
+                ? "border-[#e8a317] bg-[#e8a317] text-[#0f2d24] hover:brightness-95"
+                : "border-gray-300 bg-white text-[#0f2d24] hover:bg-gray-50",
+            )}
+          >
+            {added ? (
+              <>
+                <Check className="size-4" strokeWidth={3} />
+                Added!
+              </>
+            ) : featured ? (
+              "Select Box"
+            ) : (
+              "Add to Cart"
+            )}
+          </button>
+        )}
       </div>
     </div>
   )
