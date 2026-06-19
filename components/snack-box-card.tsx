@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { CheckCircle2, ShoppingCart } from "lucide-react"
+import { Check, ShoppingCart } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useCart } from "@/lib/cart-context"
 import type { Product } from "@/lib/products"
@@ -42,8 +42,8 @@ export function SnackBoxCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {featured && (
-          <span className="absolute left-3 top-3 rounded-md bg-[#0f2d24] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#e8a317] ring-1 ring-[#e8a317]/40">
-            Most Popular
+          <span className="absolute left-3 top-3 rounded-md bg-[#c5e8d8] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#0f2d24]">
+            MOST POPULAR
           </span>
         )}
         <span className="absolute right-3 top-3 rounded-full bg-[#e8a317] px-3 py-1 text-xs font-bold text-[#0f2d24] shadow">
@@ -56,9 +56,9 @@ export function SnackBoxCard({ product }: { product: Product }) {
         <ul className="mt-4 space-y-3">
           {product.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2.5 text-sm">
-              <CheckCircle2
-                className={cn("mt-0.5 size-4 shrink-0", featured ? "text-[#e8a317]" : "text-[#0f2d24]/70")}
-              />
+              <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-[#0f2d24]">
+                <Check className="size-3 text-white" strokeWidth={3} />
+              </span>
               <span className={featured ? "text-white/85" : "text-gray-500"}>
                 {feature}
               </span>
@@ -72,21 +72,18 @@ export function SnackBoxCard({ product }: { product: Product }) {
             "mt-6 flex w-full items-center justify-center gap-2 rounded-lg border py-3 text-sm font-semibold transition-all active:translate-y-px",
             featured
               ? "border-[#e8a317] bg-[#e8a317] text-[#0f2d24] hover:brightness-95"
-              : "border-gray-200 bg-white text-[#0f2d24] hover:bg-gray-50",
+              : "border-gray-300 bg-white text-[#0f2d24] hover:bg-gray-50",
           )}
         >
           {added ? (
             <>
-              <CheckCircle2 className="size-4" />
+              <Check className="size-4" strokeWidth={3} />
               Added!
             </>
           ) : featured ? (
             "Select Box"
           ) : (
-            <>
-              <ShoppingCart className="size-4" />
-              Add to Cart
-            </>
+            "Add to Cart"
           )}
         </button>
       </div>
