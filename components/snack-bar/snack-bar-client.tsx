@@ -4,15 +4,12 @@ import { useState, useMemo } from "react"
 import Link from "next/link"
 import { SlidersHorizontal } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { allProducts } from "@/lib/products"
+import { allProducts, snackBoxes } from "@/lib/products"
 import { SnackBoxCard } from "@/components/snack-box-card"
 
 const categories = [
   { id: "all", label: "All Refreshments" },
   { id: "boxes", label: "Snack Boxes" },
-  { id: "meeting", label: "Meeting Packs" },
-  { id: "pantry", label: "Office Pantry" },
-  { id: "addons", label: "Add-on Options" },
 ]
 
 const priceRanges = [
@@ -21,24 +18,13 @@ const priceRanges = [
   { id: "over100", label: "Over R100", test: (p: number) => p > 100 },
 ]
 
-function matchesCategory(category: string, product: (typeof allProducts)[number]) {
-  switch (category) {
-    case "all":
-      return true
-    case "boxes":
-      return product.category === "box"
-    case "meeting":
-      return product.id === "meeting-pack"
-    case "pantry":
-      return product.id === "office-pantry"
-    case "addons":
-      return product.category === "addon"
-    default:
-      return true
-  }
+function matchesCategory(category: string, product: { category: string; id: string }) {
+  if (category === "all") return true
+  if (category === "boxes") return product.category === "box"
+  return true
 }
 
-export function SnackBarClient() {
+export function SnackBarClient({ boxesOnly = false }: { boxesOnly?: boolean }) {
   const [category, setCategory] = useState("all")
   const [prices, setPrices] = useState<string[]>([])
 
@@ -46,13 +32,15 @@ export function SnackBarClient() {
     setPrices((prev) => (prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]))
   }
 
+  const sourceProducts = boxesOnly ? snackBoxes : allProducts
+
   const filtered = useMemo(() => {
-    return allProducts.filter((product) => {
+    return sourceProducts.filter((product) => {
       if (!matchesCategory(category, product)) return false
       if (prices.length === 0) return true
       return priceRanges.filter((r) => prices.includes(r.id)).some((r) => r.test(product.price))
     })
-  }, [category, prices])
+  }, [category, prices, sourceProducts])
 
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
