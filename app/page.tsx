@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/hero"
 import { WhyChoose } from "@/components/home/why-choose"
-import { HowItWorks } from "@/components/home/how-it-works"
 import { SnackBoxesSection } from "@/components/home/snack-boxes-section"
+import { HowItWorks } from "@/components/home/how-it-works"
 import { EssentialAddons } from "@/components/home/essential-addons"
 
 export default function HomePage() {
@@ -9,8 +9,8 @@ export default function HomePage() {
     <main>
       <Hero />
       <WhyChoose />
-      <HowItWorks />
       <SnackBoxesSection />
+      <HowItWorks />
       <EssentialAddons />
     </main>
   )
