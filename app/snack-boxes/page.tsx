@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { SnackBarClient } from "@/components/snack-bar/snack-bar-client"
+import { MeetingPantryFeature } from "@/components/meeting-pantry-feature"
+import { EssentialAddons } from "@/components/home/essential-addons"
 
 export const metadata: Metadata = {
   title: "Snack Boxes — The Snack Bar | WorkFuel",
@@ -31,6 +33,14 @@ export default function SnackBoxesPage() {
           <SnackBarClient boxesOnly />
         </div>
       </section>
+
+      <section className="bg-gray-50 pb-12 lg:pb-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <MeetingPantryFeature />
+        </div>
+      </section>
+
+      <EssentialAddons />
     </main>
   )
 }
