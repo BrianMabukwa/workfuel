@@ -134,26 +134,27 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Olive/gold curved band - overlays the junction */}
+        {/* Olive/gold curved band - overlays junction, curves RIGHT in middle */}
         <svg
-          className="pointer-events-none absolute right-0 top-0 z-20 hidden h-full w-[52%] lg:block"
-          viewBox="0 0 600 580"
+          className="pointer-events-none absolute top-0 z-20 hidden h-full lg:block"
+          style={{ left: "calc(48% - 80px)", width: "160px" }}
+          viewBox="0 0 160 580"
           preserveAspectRatio="none"
         >
-          {/* Main olive band */}
           <path
-            d="M220,0 C250,60 290,140 310,290 C330,440 290,520 250,580 L190,580 C230,520 270,440 250,290 C230,140 190,60 160,0 Z"
+            d="M80,0 C100,80 130,180 140,290 C150,400 120,500 80,580 L0,580 C40,500 70,400 60,290 C50,180 70,80 80,0 Z"
             fill="#8B7355"
           />
         </svg>
         {/* Mobile olive curve */}
         <svg
-          className="pointer-events-none absolute right-0 top-0 z-20 h-full w-full lg:hidden"
-          viewBox="0 0 400 580"
+          className="pointer-events-none absolute top-0 z-20 h-full lg:hidden"
+          style={{ left: "calc(48% - 50px)", width: "100px" }}
+          viewBox="0 0 100 580"
           preserveAspectRatio="none"
         >
           <path
-            d="M160,0 C180,60 200,140 210,290 C220,440 200,520 180,580 L140,580 C160,520 180,440 170,290 C160,140 140,60 120,0 Z"
+            d="M50,0 C65,80 80,180 85,290 C90,400 75,500 50,580 L0,580 C25,500 40,400 35,290 C30,180 35,80 50,0 Z"
             fill="#8B7355"
           />
         </svg>
