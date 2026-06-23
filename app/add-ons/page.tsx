@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { MeetingPantryFeature } from "@/components/meeting-pantry-feature"
 import { EssentialAddons } from "@/components/home/essential-addons"
 
 export const metadata: Metadata = {
@@ -22,11 +21,9 @@ export default function AddOnsPage() {
 
       <section className="bg-gray-50 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <MeetingPantryFeature />
+          <EssentialAddons />
         </div>
       </section>
-
-      <EssentialAddons />
     </main>
   )
 }

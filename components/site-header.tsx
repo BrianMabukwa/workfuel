@@ -71,13 +71,6 @@ export function SiteHeader() {
             )}
           </Link>
 
-          <Link
-            href="/checkout"
-            className="ml-1 rounded-lg bg-[#e8a317] px-4 py-2 text-sm font-semibold text-[#0f2d24] shadow-sm transition-all hover:brightness-95 active:translate-y-px"
-          >
-            Order Now
-          </Link>
-
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
@@ -112,13 +105,6 @@ export function SiteHeader() {
               </Link>
             )
           })}
-          <Link
-            href="/checkout"
-            onClick={() => setOpen(false)}
-            className="mt-1 rounded-lg bg-[#e8a317] px-3 py-2 text-center text-sm font-semibold text-[#0f2d24]"
-          >
-            Order Now
-          </Link>
         </nav>
       </div>
     </header>

@@ -19,8 +19,8 @@ import { cn } from "@/lib/utils"
 import { useCart } from "@/lib/cart-context"
 
 const payments = [
-  { id: "card", label: "Credit Card", icon: CreditCard },
-  { id: "eft", label: "EFT Transfer", icon: Building2 },
+  { id: "card", label: "Credit Card", icon: CreditCard, disabled: true },
+  { id: "eft", label: "EFT Transfer", icon: Building2, disabled: false },
 ]
 
 function Field({
@@ -43,11 +43,11 @@ const inputClass =
 
 export default function CheckoutPage() {
   const { items, subtotal, updateQuantity, removeItem, clear } = useCart()
-  const [payment, setPayment] = useState("card")
+  const [payment, setPayment] = useState("eft")
   const [placed, setPlaced] = useState(false)
 
-  const vat = subtotal * 0.15
-  const total = subtotal + vat
+  const delivery = 150
+  const total = subtotal + delivery
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -157,16 +157,24 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       key={option.id}
-                      onClick={() => setPayment(option.id)}
+                      disabled={option.disabled}
+                      onClick={() => !option.disabled && setPayment(option.id)}
                       className={cn(
                         "flex flex-col items-center gap-2 rounded-xl border-2 px-4 py-5 text-sm font-semibold transition-all",
-                        active
-                          ? "border-[#0f2d24] bg-[#c5e8d8]/30 text-[#0f2d24]"
-                          : "border-gray-200 bg-white text-gray-500 hover:border-[#0f2d24]/40",
+                        option.disabled
+                          ? "cursor-not-allowed border-gray-200 bg-gray-50 text-gray-400 opacity-60"
+                          : active
+                            ? "border-[#0f2d24] bg-[#c5e8d8]/30 text-[#0f2d24]"
+                            : "border-gray-200 bg-white text-gray-500 hover:border-[#0f2d24]/40",
                       )}
                     >
                       <option.icon className="size-6" />
                       {option.label}
+                      {option.disabled && (
+                        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
+                          Coming Soon
+                        </span>
+                      )}
                     </button>
                   )
                 })}
@@ -251,12 +259,8 @@ export default function CheckoutPage() {
                       <span className="font-medium text-gray-900">R{subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-gray-500">
-                      <span>VAT (15%)</span>
-                      <span className="font-medium text-gray-900">R{vat.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-gray-500">
                       <span>Delivery Fee</span>
-                      <span className="font-bold text-[#0f2d24]">FREE</span>
+                      <span className="font-medium text-gray-900">R{delivery.toFixed(2)}</span>
                     </div>
                   </div>
 

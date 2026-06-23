@@ -88,7 +88,7 @@ export function SnackBoxCard({
                 Added!
               </>
             ) : (
-              "View Details"
+                "Add to Cart"
             )}
           </button>
         ) : (

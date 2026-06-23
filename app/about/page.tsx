@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Building2, GraduationCap, Car, Headphones, CalendarDays, ShieldCheck, Phone, Mail } from "lucide-react"
+import { WhyChoose } from "@/components/home/why-choose"
 
 export const metadata: Metadata = {
   title: "About Us | WorkFuel",
@@ -100,6 +101,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+      <WhyChoose />
     </main>
   )
 }
